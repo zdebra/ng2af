@@ -1,0 +1,12 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+.factorypath
+.cheatsheet.xml
+target
+src/main/webapp/ng2/node_modules/*
+src/main/webapp/ng2/app/*.js
+src/main/webapp/ng2/app/*.js.map

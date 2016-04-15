@@ -1,0 +1,60 @@
+<h2>Create new place</h2>
+
+<form class="pure-form pure-form-aligned" novalidate name="newPlaceForm" (ngSubmit)="onSubmit(placeForm)" #placeForm="ngForm">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter name of place" required [(ngModel)]="model.name"
+                   ngControl="name" #name="ngForm">
+            <div [hidden]="name.valid || name.pristine">
+                Name of place is required
+            </div>
+        </div>
+        <div class="pure-control-group">
+            <label>Type</label>
+            <label class="pure-radio" for="library">
+                <input type="radio" name="placeType" id="library" (click)="model.placeType='library'" [checked]="model.placeType=='library'">
+                Library
+            </label>
+            <label class="pure-radio" for="store">
+                <input type="radio" name="placeType" id="store" (click)="model.placeType='store'" [checked]="model.placeType=='store'">
+                Store
+            </label>
+        </div>
+        <div class="pure-control-group">
+            <label for="street">Street</label>
+            <input type="text" id="street" placeholder="Street" required [(ngModel)]="model.street" ngControl="street"
+                   #street="ngForm">
+            <div [hidden]="street.valid || street.pristine">
+                Street is required
+            </div>
+        </div>
+        <div class="pure-control-group">
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="City" required [(ngModel)]="model.city" ngControl="city"
+                   #city="ngForm">
+            <div [hidden]="city.valid || city.pristine">
+                City is required
+            </div>
+        </div>
+        <div class="pure-control-group">
+            <label for="state">State</label>
+            <input type="text" id="state" placeholder="State" required [(ngModel)]="model.state" ngControl="state"
+                   #state="ngForm">
+            <div [hidden]="state.valid || state.pristine">
+                State is required
+            </div>
+        </div>
+        <div class="pure-control-group">
+            <label for="zip">Zip</label>
+            <input type="text" id="zip" placeholder="Zip" required [(ngModel)]="model.zip" ngControl="zip" #zip="ngForm">
+            <div [hidden]="zip.valid || zip.pristine">
+                Zip is required
+            </div>
+        </div>
+    </fieldset>
+    <div class="pure-controls">
+        <button class="pure-button pure-button-primary" type="submit">Submit</button>
+        <div [hidden]="placeForm.valid || placeForm.pristine">Form is invalid</div>
+    </div>
+</form>

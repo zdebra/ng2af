@@ -1,0 +1,26 @@
+<h2>List of all books</h2>
+<table class="pure-table pure-table-horizontal">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Added</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Created</th>
+        <th>ISNB</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="#book of books">
+        <td>{{book.id}}</td>
+        <td>{{book.added.username}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.description}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.created}}</td>
+        <td>{{book.isnb}}</td>
+       </tr>
+    </tbody>
+</table>

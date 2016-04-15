@@ -1,0 +1,42 @@
+<h2>Create new user</h2>
+
+<form [hidden]="user?.role != 'ADMIN'" class="pure-form pure-form-aligned" novalidate name="newUserForm" (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Type username" required [(ngModel)]="model.username"
+                   ngControl="username" #username="ngForm" minlength="5">
+            <div [hidden]="username.valid || username.pristine">
+                Username is required and must be at least 5 characters long
+            </div>
+        </div>
+        <div class="pure-control-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required [(ngModel)]="model.password" ngControl="password"
+                   #password="ngForm" minlength="8">
+            <div [hidden]="password.valid || password.pristine">
+                Password is required and must be at least 8 characters long
+            </div>
+        </div>
+        <div class="pure-control-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Type email" [(ngModel)]="model.email" ngControl="email"
+                   #email="ngForm" pattern="[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$">
+            <div [hidden]="email.valid || email.pristine">
+                Email is invalid
+            </div>
+        </div>
+        <div class="pure-control-group">
+            <label for="role">Role</label>
+            <select id="role" [(ngModel)]="model.role" #role="ngForm" ngControl="role">
+                <option value="visitor">Visitor</option>
+                <option value="editor">Editor</option>
+                <option value="manager">Manager</option>
+            </select>
+        </div>
+    </fieldset>
+    <div class="pure-controls">
+        <button class="pure-button pure-button-primary" type="submit">Submit</button>
+        <div [hidden]="userForm.valid || userForm.pristine">Form is invalid</div>
+    </div>
+</form>

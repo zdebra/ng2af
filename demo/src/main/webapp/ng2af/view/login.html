@@ -1,0 +1,32 @@
+<div class="pure-g">
+    <div class="pure-u-1">
+        <h1>Please, log in.</h1>
+        <form class="pure-form pure-form-aligned" (ngSubmit)="login()" #loginForm="ngForm">
+
+            <fieldset>
+
+                <div class="pure-control-group">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" required [(ngModel)]="model.username" ngControl="username"
+                           #username="ngForm" placeholder="username" (keyup)="message=''">
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" required [(ngModel)]="model.password" ngControl="password"
+                           #password="ngForm" placeholder="password" (keyup)="message=''">
+                </div>
+
+                <div class="pure-controls">
+                    <button type="submit" class="pure-button pure-button-primary">Log In</button>
+                </div>
+
+            </fieldset>
+
+            <div [hidden]="message==''" style="color:red;">
+                <h5>Error!</h5>
+                <p>{{message}}</p>
+            </div>
+        </form>
+    </div>
+</div>

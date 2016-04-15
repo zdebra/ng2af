@@ -1,0 +1,1 @@
+--insert into User (parentId, username, password, role) values (0, 'user0', 'user0',0),(1, 'user1', 'user1',1),(2, 'user2', 'user2',2),(3, 'user3', 'user3',3);

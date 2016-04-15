@@ -1,0 +1,9 @@
+<entity-mappings version="2.1"
+                 xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
+
+    <entity class="fel.cvut.af.br.model.User">
+        <convert converter="fel.cvut.af.br.security.CryptoConverter" attribute-name="password"/>
+    </entity>
+</entity-mappings>
