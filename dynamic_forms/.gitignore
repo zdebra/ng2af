@@ -50,3 +50,5 @@ crashlytics-build.properties
 /node_modules
 /app/*.js*
 /app/*/*.js*
+/src/*.js*
+
