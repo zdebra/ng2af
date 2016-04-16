@@ -12,7 +12,7 @@ import {FORM_DIRECTIVES} from "angular2/common";
     template: `
             <form novalidate [attr.name]="structure?.name" class="pure-form pure-form-aligned" (ngSubmit)="onSubmit($event)" [ngFormModel]="myForm">
                 <fieldset>
-                    <dynamic-input *ngFor="#inp of structure?.inputs" [inp]="inp" [form]="myForm"></dynamic-input>
+                    <dynamic-input *ngFor="#inp of structure?.inputs" [inp]="inp" [form]="myForm" [getOptions]="optionsFnc"></dynamic-input>
                 </fieldset>
                 <div class="pure-controls">
                     <button type="submit" class="pure-button pure-button-primary">Submit</button>
@@ -25,6 +25,7 @@ import {FORM_DIRECTIVES} from "angular2/common";
 export class DynamicFormComponent {
 
     @Input('structure') public structure:any;
+    @Input('optionsFnc') public optionsFnc:Function;
     @Output('submit') public submit: EventEmitter<any> = new EventEmitter();
 
     public myForm:ControlGroup;

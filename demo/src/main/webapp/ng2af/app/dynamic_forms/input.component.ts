@@ -1,6 +1,5 @@
 import {Component} from "angular2/core";
 import {Input} from "angular2/core";
-import {FormService} from "../form.service";
 import {Control} from "angular2/common";
 import {Validators} from "angular2/common";
 import {FORM_DIRECTIVES} from "angular2/common";
@@ -8,6 +7,9 @@ import {ControlGroup} from "angular2/common";
 import {FORM_PROVIDERS} from "angular2/common";
 import {Inject} from "angular2/core";
 import {CustomValidators} from "./validators.service";
+import {Observable} from "rxjs/Observable";
+import {Http, Response} from "angular2/http";
+
 
 @Component({
     selector: 'dynamic-input',
@@ -18,18 +20,19 @@ import {CustomValidators} from "./validators.service";
 export class DynamicInputComponent {
 
     @Input('inp') public inp:any;
+    @Input('getOptions') public getOptions:Function; // the function returning Observable<Response>
     @Input('form') public form:ControlGroup;
 
     public arrayOfKeys;
 
     public inpControl:Control = new Control("");
 
-    constructor(private _form:FormService, private _customValidators:CustomValidators){
+    constructor(private _customValidators:CustomValidators, private _http:Http){
     }
 
     public ngAfterContentInit():void {
         if(this.inp.endpoint) {
-            this._form.getOptionsFromEndpoint(this.inp.endpoint).subscribe(
+            this.getOptions(this.inp.endpoint).subscribe(
                 data => {
                     this.inp.options = data.json();
                     this.arrayOfKeys = Object.keys(this.inp.options);

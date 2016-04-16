@@ -8,7 +8,7 @@ import {Json} from "angular2/src/facade/lang";
 
 @Component({
     selector: 'book',
-    template: `<h2>Create book</h2><dynamic-form [structure]="formData" (submit)="onSubmit($event)"></dynamic-form>`,
+    template: `<h2>Create book</h2><dynamic-form [structure]="formData" (submit)="onSubmit($event)" [optionsFnc]="_form.getOptionsFromEndpoint"></dynamic-form>`,
     providers: [BookService, FormService],
     directives: [DynamicFormComponent]
 })
@@ -16,7 +16,7 @@ export class BookComponent {
 
     public formData:Object;
 
-    constructor(private _book:BookService, private _form:FormService, private _router:Router) {
+    constructor(private _book:BookService, public _form:FormService, private _router:Router) {
         this.getFormStructure();
     }
 
