@@ -1,8 +1,9 @@
 import {Component} from "angular2/core";
 import {FormService} from "./form.service";
-import {DynamicFormComponent} from "./dynamic_forms/form.component";
+import {DynamicFormComponent} from "ng2dynamicform/src/form.component";
 import {Router} from "angular2/router";
 import {PlaceService} from "./place.service";
+
 @Component({
     selector: 'place',
     template: `<h2>Create place</h2><dynamic-form [structure]="formData" (submit)="onSubmit($event)"></dynamic-form>`,

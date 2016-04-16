@@ -2,9 +2,9 @@ import {Component} from "angular2/core";
 import {Book} from "./book.model";
 import {BookService} from "./book.service";
 import {Router} from "angular2/router";
-import {DynamicFormComponent} from "./dynamic_forms/form.component";
 import {FormService} from "./form.service";
 import {Json} from "angular2/src/facade/lang";
+import {DynamicFormComponent} from "ng2dynamicform/src/form.component";
 
 @Component({
     selector: 'book',

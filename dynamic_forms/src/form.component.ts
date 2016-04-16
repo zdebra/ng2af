@@ -1,6 +1,6 @@
 import {Component} from "angular2/core";
 import {Input} from "angular2/core";
-import {DynamicInputComponent} from "./input.component";
+import {DynamicInputComponent} from "./input.component.js";
 import {Output} from "angular2/core";
 import {EventEmitter} from "angular2/core";
 import {ControlGroup} from "angular2/common";
@@ -25,7 +25,7 @@ import {FORM_DIRECTIVES} from "angular2/common";
 export class DynamicFormComponent {
 
     @Input('structure') public structure:any;
-    @Input('optionsFnc') public optionsFnc:Function;
+    @Input('optionsFnc') public optionsFnc:Function; // the function returning Observable<Response>
     @Output('submit') public submit: EventEmitter<any> = new EventEmitter();
 
     public myForm:ControlGroup;
