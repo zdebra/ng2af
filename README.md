@@ -81,3 +81,9 @@ export class BookComponent {
 6. When you have both server and client app dependencies it's time for start the app. At first, run `mvn package` to create deployeable WAR package. Then, use your application server to deploy the app. For wildfly's CLI it's `deploy /path/to/war/file.war`. Or use your IDE to handle this.
 
 7. You should see app running on url where you deployed the app.
+
+### Documentation
+* [Input documentation](af/inputs.md)
+* [Option documentation](af/options.md)
+* [Validators documentation](af/validators.md)
+* [DynamicForms documentation](dynamic_forms/documentation.md) (Angular 2 library)
