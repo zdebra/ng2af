@@ -75,8 +75,7 @@ export class BookComponent {
 2. Clone the repository and either hook up this rutine to your IDE, or navigate to demo folder and run `mvn install` here. Then you need to get all frontend dependencies.
 
 3. There are two Angular 2 apps in `demo/src/main/webapp/`. First, in the `ng2` folder is without usage of DynamicForms made for comparsion purposes and the second, in the `ng2af` folder, where prototype app with usage of DynamicForms is. Run `npm install` in folder of prototype you want to use, or in both of them.
-
-4. Make sure you run `npm link ../../../../../dynamic_forms` to link local library in `ng2af` folder before processing `npm install`.
+⋅⋅* Make sure you run `npm link ../../../../../dynamic_forms` to link local library in `ng2af` folder before processing `npm install`.
 
 5. Next, you need to transpile typescript files to javascript. You can run transpiler in client app root directory, for example `node-typesript`. This watcher will look up for file changes and transpile to javascript. I used automatic build-in transpiler in Intellij IDEA.
 
