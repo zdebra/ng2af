@@ -80,4 +80,4 @@ SelectOneEndpointOptionsInput(String name, String placeholder, String label,Coll
 ```
 Similarly like SelectMany, this is version of selectbox where only single option can be selected and options are requested in separate http request.
 
-You can see usage of these [here](../demo/src/main/java/fel/cvut/af/br/service/StarupBean.java).
+You can see usage of these [here](../demo/src/main/java/fel/cvut/af/br/service/StartupBean.java).
