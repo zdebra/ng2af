@@ -7,6 +7,7 @@ import fel.cvut.af.br.model.User;
 import fel.cvut.af.br.util.AuthorAlreadyExistsException;
 import fel.cvut.af.util.LoggingException;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,8 +17,7 @@ import java.util.logging.Logger;
 /**
  * Created by zb on 20.2.16.
  */
-//@Stateless
-//@Local(AuthorService.class)
+@Stateless
 public class StandardAuthorService implements AuthorService {
 
     @Inject
