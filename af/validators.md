@@ -43,7 +43,7 @@ MaxNumberValidator(String message, Integer value)
 Validates if submitted number is lower than given value.
 * `value` is maximal number which can be submitted
 
-###### EmailValidator
+##### EmailValidator
 ```java
 EmailValidator(String message)
 ```
