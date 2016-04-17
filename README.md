@@ -67,4 +67,19 @@ export class BookComponent {
 
 }
 ```
-`BookComponent` simply obtains data through `FormService` to fill up `dynamic-form`.
+`BookComponent` simply obtains data through `FormService` to fill up `dynamic-form` which is where form is rendered. You can see more in the [demo](demo/src/main/webapp/ng2af/).
+
+### How to run the demo?
+1. Make sure you have installed Java EE7 application server. I am using [Wildfly 10.0.0.Final](http://wildfly.org/downloads/).
+
+2. Clone the repository and either hook up this rutine to your IDE, or navigate to demo folder and run `mvn install` here. Then you need to get all frontend dependencies.
+
+3. There are two Angular 2 apps in `demo/src/main/webapp/`. First, in the `ng2` folder is without usage of DynamicForms made for comparsion purposes and the second, in the `ng2af` folder, where prototype app with usage of DynamicForms is. Run `npm install` in folder of prototype you want to use, or in both of them.
+
+4. Make sure you run `npm link ../../../../../dynamic_forms` to link local library in `ng2af` folder before processing `npm install`.
+
+5. Next, you need to transpile typescript files to javascript. You can run transpiler in client app root directory, for example `node-typesript`. This watcher will look up for file changes and transpile to javascript. I used automatic build-in transpiler in Intellij IDEA.
+
+6. When you have both server and client app dependencies it's time for start the app. At first, run `mvn package` to create deployeable WAR package. Then, use your application server to deploy the app. For wildfly's CLI it's `deploy /path/to/war/file.war`. Or use your IDE to handle this.
+
+7. You should see app running on url where you deployed the app.
