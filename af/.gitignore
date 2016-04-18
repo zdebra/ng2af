@@ -7,4 +7,5 @@ gen
 
 .factorypath
 .cheatsheet.xml
-target
+target/*
+!target/af.jar
