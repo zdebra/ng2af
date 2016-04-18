@@ -70,17 +70,25 @@ export class BookComponent {
 `BookComponent` simply obtains data through `FormService` to fill up `dynamic-form` which is where form is rendered. You can see more in the [demo](demo/src/main/webapp/ng2af/).
 
 ### How to run the demo?
-1. Make sure you have installed Java EE7 application server. I am using [Wildfly 10.0.0.Final](http://wildfly.org/downloads/).
+1. Clone this repository `git clone https://github.com/zdebra/ng2af.git`
 
-2. Clone the repository and either hook up this rutine to your IDE, or navigate to demo folder and run `mvn install` here. Then you need to get all frontend dependencies.
+2. Get all frontend dependencies. There are two Angular 2 apps in `demo/src/main/webapp` folder:
+    - `ng2` is prototype app without usage of `DynamicForms` library
+    - `ng2af` is prototype app created on top of `DynamicForms` library
 
-3. There are two Angular 2 apps in `demo/src/main/webapp/`. First, in the `ng2` folder is without usage of DynamicForms made for comparsion purposes and the second, in the `ng2af` folder, where prototype app with usage of DynamicForms is. Run `npm install` in folder of prototype you want to use, or in both of them. Make sure you run `npm link ../../../../../dynamic_forms` to link local library in `ng2af` folder before processing `npm install`.
+    Run `npm link ../../../../../dynamic_forms` to link local npm package inside `ng2af` subdirectory. You might use sudo for this command, depends on your npm settings. Then navigate to both `ng2` and `ng2af` subdirectories and run `npm install` here. This should install all required frontend dependencies.
 
-5. Next, you need to transpile typescript files to javascript. You can run transpiler in client app root directory, for example `node-typesript`. This watcher will look up for file changes and transpile to javascript. I used automatic build-in transpiler in Intellij IDEA.
+3. Angular 2 is developed in Typescript, which nowdays browsers can't process. So you need to transpile all `.ts` files to javascript. There are two ways how to achieve this:
+  - use your built-in transpiler of your IDE (recomended)
+  - run `tsc` in command line, you probably need to install typescript globally first (`npm install typescript -g`), you might get bunch of warnings but important is whether it generates `.js` files inside `/app` directory.
 
-6. When you have both server and client app dependencies it's time for start the app. At first, run `mvn package` to create deployeable WAR package. Then, use your application server to deploy the app. For wildfly's CLI it's `deploy /path/to/war/file.war`. Or use your IDE to handle this.
+    You must transpile source codes in both `ng2` and `ng2af` prototypes (or in those which you want to use)
 
-7. You should see app running on url where you deployed the app.
+4. You need application server for Java EE7. I am using [Wildfly 10.0.0.Final](http://wildfly.org/downloads/).
+
+5. Create deployable package. `mvn package` does the job as well as obtaining all required server dependencies.
+
+6. Deploy `war` archive.
 
 ### Documentation
 * [Input documentation](af/inputs.md)
