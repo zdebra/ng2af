@@ -2,6 +2,7 @@ package fel.cvut.af.model.input;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fel.cvut.af.model.Form;
@@ -89,6 +90,19 @@ public abstract class Input {
      */
     @NotNull
     private ResponseFormat responseFormat;
+
+    /**
+     *  The HTML class attribute of divs surrounding inputs.
+     */
+    @JsonProperty("inputSurroundingClass")
+    private String htmlClassOfInputsSurroundingDiv = "pure-control-group";
+
+    /**
+     * The HTML class attribute of input's error message divs.
+     */
+    @JsonProperty("inputErrorClass")
+    private String htmlClassOfInputsErrorMessageDiv = "input-error";
+
 
     protected Input() {}
 
@@ -273,5 +287,37 @@ public abstract class Input {
      * @return the input type
      */
     public abstract String getInputType();
+
+    /**
+     *
+     * @return the html class attribute of input's surrounding div
+     */
+    public String getHtmlClassOfInputsSurroundingDiv() {
+        return htmlClassOfInputsSurroundingDiv;
+    }
+
+    /**
+     *
+     * @param htmlClassOfInputsSurroundingDiv is html class attribute of div surrounding input
+     */
+    public void setHtmlClassOfInputsSurroundingDiv(String htmlClassOfInputsSurroundingDiv) {
+        this.htmlClassOfInputsSurroundingDiv = htmlClassOfInputsSurroundingDiv;
+    }
+
+    /**
+     *
+     * @return the html class attribute of input's error message div
+     */
+    public String getHtmlClassOfInputsErrorMessageDiv() {
+        return htmlClassOfInputsErrorMessageDiv;
+    }
+
+    /**
+     *
+     * @param htmlClassOfInputsErrorMessageDiv is html class attribute of input's error message div
+     */
+    public void setHtmlClassOfInputsErrorMessageDiv(String htmlClassOfInputsErrorMessageDiv) {
+        this.htmlClassOfInputsErrorMessageDiv = htmlClassOfInputsErrorMessageDiv;
+    }
 
 }

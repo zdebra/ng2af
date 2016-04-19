@@ -13,7 +13,7 @@ import {Http, Response} from "angular2/http";
 
 @Component({
     selector: 'dynamic-input',
-    template: `<div [ngSwitch]="inp?.inputType" class="pure-control-group">
+    template: `<div [ngSwitch]="inp?.inputType" [attr.class]="inp?.inputSurroundingClass">
     <template ngSwitchWhen="TEXT">
         <label [attr.for]="inp?.name">{{inp?.label}}</label>
         <input [ngFormControl]="inpControl" [attr.id]="inp?.name" [attr.placeholder]="inp?.placeholder" type="text" [(ngModel)]="inp.defaultValue">
@@ -66,7 +66,7 @@ import {Http, Response} from "angular2/http";
         </template>
     </template>
     <template ngSwitchDefault>Unsupported input type: {{inp?.inputType}}<br></template>
-    <div *ngIf="inpControl.dirty || form.touched">
+    <div *ngIf="inpControl.dirty || form.touched" [attr.class]="inp?.inputErrorClass">
         <span [hidden]="inpControl.valid" class="ui error message">{{inp?.label}} invalid:</span>
         <span [hidden]="!inpControl.hasError('regExp')">{{inp?.validators?.regExp?.message}}</span>
         <span [hidden]="!inpControl.hasError('required')">{{inp?.validators?.required?.message}}</span>

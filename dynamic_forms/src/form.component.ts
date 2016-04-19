@@ -10,15 +10,15 @@ import {FORM_DIRECTIVES} from "angular2/common";
 @Component({
     selector: 'dynamic-form',
     template: `
-            <form novalidate [attr.name]="structure?.name" class="pure-form pure-form-aligned" (ngSubmit)="onSubmit($event)" [ngFormModel]="myForm">
+            <form novalidate [attr.name]="structure?.name" [attr.class]="structure?.formClass" (ngSubmit)="onSubmit($event)" [ngFormModel]="myForm">
                 <fieldset>
                     <dynamic-input *ngFor="#inp of structure?.inputs" [inp]="inp" [form]="myForm" [getOptions]="optionsFnc"></dynamic-input>
                 </fieldset>
-                <div class="pure-controls">
-                    <button type="submit" class="pure-button pure-button-primary">Submit</button>
+                <div [attr.class]="structure?.buttonSurroundingClass">
+                    <button type="submit" [attr.class]="structure?.submitButtonClass">Submit</button>
                 </div>
 
-                <div *ngIf="!myForm.valid" class="ui error message">Form is invalid</div>
+                <div *ngIf="!myForm.valid" [attr.class]="structure?.formErrorClass">Form is invalid</div>
             </form>`,
     directives: [DynamicInputComponent, FORM_DIRECTIVES]
 })

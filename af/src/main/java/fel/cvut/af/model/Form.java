@@ -2,6 +2,7 @@ package fel.cvut.af.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import fel.cvut.af.model.input.Input;
 
@@ -46,6 +47,30 @@ public class Form {
      */
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, mappedBy = "form")
     private Collection<Input> inputs;
+
+    /**
+     * The HTML class attribute of form.
+     */
+    @JsonProperty("formClass")
+    private String htmlClassOfForm = "pure-form pure-form-aligned";
+
+    /**
+     * The HTML class attribute of div surrounding submit button.
+     */
+    @JsonProperty("buttonSurroundingClass")
+    private String htmlClassOfButtonSurroundingDiv = "pure-controls";
+
+    /**
+     * The HTML class attribute of submit button.
+     */
+    @JsonProperty("submitButtonClass")
+    private String htmlClassOfSubmitButton = "pure-button pure-button-primary";
+
+    /**
+     * The HTML class attribute of form error message div.
+     */
+    @JsonProperty("formErrorClass")
+    private String htmlClassOfFormErrorMessageDiv = "form-error";
 
     public Form(){};
 
@@ -115,6 +140,70 @@ public class Form {
      */
     public void setInputs(Collection<Input> inputs) {
         this.inputs = inputs;
+    }
+
+    /**
+     *
+     * @return the html class attribute of form
+     */
+    public String getHtmlClassOfForm() {
+        return htmlClassOfForm;
+    }
+
+    /**
+     *
+     * @param htmlClassOfForm is html class attribute of form
+     */
+    public void setHtmlClassOfForm(String htmlClassOfForm) {
+        this.htmlClassOfForm = htmlClassOfForm;
+    }
+
+    /**
+     *
+     * @return the html class attribute of control panel's div
+     */
+    public String getHtmlClassOfButtonSurroundingDiv() {
+        return htmlClassOfButtonSurroundingDiv;
+    }
+
+    /**
+     *
+     * @param htmlClassOfButtonSurroundingDiv is html class attribute of control panel's div
+     */
+    public void setHtmlClassOfButtonSurroundingDiv(String htmlClassOfButtonSurroundingDiv) {
+        this.htmlClassOfButtonSurroundingDiv = htmlClassOfButtonSurroundingDiv;
+    }
+
+    /**
+     *
+     * @return the html class attribute of submit button
+     */
+    public String getHtmlClassOfSubmitButton() {
+        return htmlClassOfSubmitButton;
+    }
+
+    /**
+     *
+     * @param htmlClassOfSubmitButton is html class attribute of submit button
+     */
+    public void setHtmlClassOfSubmitButton(String htmlClassOfSubmitButton) {
+        this.htmlClassOfSubmitButton = htmlClassOfSubmitButton;
+    }
+
+    /**
+     *
+     * @return the html class attribute of form's error message div
+     */
+    public String getHtmlClassOfFormErrorMessageDiv() {
+        return htmlClassOfFormErrorMessageDiv;
+    }
+
+    /**
+     *
+     * @param htmlClassOfFormErrorMessageDiv is html class attribute of form's error message div
+     */
+    public void setHtmlClassOfFormErrorMessageDiv(String htmlClassOfFormErrorMessageDiv) {
+        this.htmlClassOfFormErrorMessageDiv = htmlClassOfFormErrorMessageDiv;
     }
 
     @Override
