@@ -81,3 +81,15 @@ SelectOneEndpointOptionsInput(String name, String placeholder, String label,Coll
 Similarly like SelectMany, this is version of selectbox where only single option can be selected and options are requested in separate http request.
 
 You can see usage of these [here](../demo/src/main/java/fel/cvut/af/br/service/StartupBean.java).
+
+### Styling
+Add some cosmectics! You can set some class attributes of input through setter methods.
+##### Input classes
+* `htmlClassOfInputsSurroundingDiv` default: `pure-control-group`
+* `htmlClassOfInputsErrorMessageDiv` default: `input-error`
+
+##### Form classes
+* `htmlClassOfForm` default: `pure-form pure-form-aligned`
+* `htmlClassOfButtonSurroundingDiv` default: `pure-controls`
+* `htmlClassOfSubmitButton` default: `pure-button pure-button-primary`
+* `htmlClassOfFormErrorMessageDiv` default: `form-error`
