@@ -2,7 +2,7 @@
 
 <form class="pure-form pure-form-aligned" novalidate name="newBookForm" (ngSubmit)="onSubmit(bookForm)" #bookForm="ngForm">
     <fieldset>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="editor">
             <label for="name">Name</label>
             <input type="text" id="name" placeholder="Enter name of book" [(ngModel)]="model.name" #name="ngForm"
                    ngControl="name" pattern=".*abc$" required>
@@ -10,7 +10,7 @@
                 Name is required and must end with character sequence 'abc'
             </div>
         </div>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="editor">
             <label for="description">Description</label>
             <textarea id="description" placeholder="Describe the book in a few words" [(ngModel)]="model.description"
                       #description="ngForm" ngControl="description"></textarea>
@@ -18,13 +18,13 @@
                 Description is invalid
             </div>
         </div>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="editor">
             <label for="author">Author</label>
             <select id="author" [(ngModel)]="model.author" #author="ngForm" ngControl="author">
                 <option *ngFor="#author of authors" [value]="author.id">{{author.name}}</option>
             </select>
         </div>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="editor">
             <label for="isnb">ISNB</label>
             <input type="text" id="isnb" placeholder="Enter ISNB number" [(ngModel)]="model.isnb" #isnb="ngForm"
                    ngControl="isnb" maxlength="8">
@@ -32,7 +32,7 @@
                 ISNB must be shorter than 9 chars
             </div>
         </div>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="editor">
             <label>Status</label>
             <label class="pure-radio" for="active">
                 <input type="radio" name="status" id="active" (click)="model.status='active'"
@@ -45,13 +45,13 @@
                 Inactive
             </label>
         </div>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="manager">
             <label for="stores">Stores</label>
             <select multiple="" id="stores" #storesInp ngControl="storesInp" (change)="storesChange($event)">
                 <option *ngFor="#store of stores" [value]="store.id" [selected]="model.stores.indexOf(store.id)!=-1">{{store.name}}</option>
             </select>
         </div>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="manager">
             <label for="price">Price</label>
             <input type="number" id="price" placeholder="Enter price of book" [(ngModel)]="model.price" #price="ngForm"
                    ngControl="price" minNumber="100" maxNumber="500">
@@ -59,13 +59,13 @@
                 Price must be higher than 100 and lower than 500
             </div>
         </div>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="manager">
             <label for="libraries">Libraries</label>
             <select multiple="" id="libraries" #librariesInp ngControl="librariesInp" (change)="librariesChange($event)">
                 <option *ngFor="#library of libraries" [value]="library.id" [selected]="model.libraries.indexOf(library.id)!=-1">{{library.name}}</option>
             </select>
         </div>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="manager">
             <label>Visibility</label>
             <label class="pure-checkbox" for="visitor">
                 <input type="checkbox" id="visitor" [checked]="model.visibility.indexOf('visitor')!=-1" (click)="visibilityClick('visitor')">
@@ -80,7 +80,7 @@
                 Manager
             </label>
         </div>
-        <div class="pure-control-group">
+        <div class="pure-control-group" *ngIf="admin">
             <label for="dateAdded">Date Added</label>
             <input type="date" id="dateAdded" placeholder="Enter a date when this book was added"
                    [(ngModel)]="model.dateAdded" #dateAdded="ngForm" ngControl="dateAdded">

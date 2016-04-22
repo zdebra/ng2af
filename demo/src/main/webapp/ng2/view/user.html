@@ -1,6 +1,6 @@
 <h2>Create new user</h2>
 
-<form [hidden]="user?.role != 'ADMIN'" class="pure-form pure-form-aligned" novalidate name="newUserForm" (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+<form *ngIf="admin" class="pure-form pure-form-aligned" novalidate name="newUserForm" (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
     <fieldset>
         <div class="pure-control-group">
             <label for="username">Username</label>

@@ -24,6 +24,7 @@ export class PlaceComponent {
     };
 
     public user:User = User.initEmptyUser();
+    public manager:boolean = false;
 
     constructor(private _place:PlaceService, private _router:Router, private _user:UserService) {
     }
@@ -34,6 +35,7 @@ export class PlaceComponent {
             this._user.getByToken().subscribe(
                 data => {
                     this.user = User.fromJson(data.text());
+                    this.manager = this.user.role == "ADMIN" || this.user.role == "MANAGER";
                 },
                 err => {
                     throw new Error(err.statusText);

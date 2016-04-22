@@ -93,3 +93,5 @@ Add some cosmectics! You can set some class attributes of input through setter m
 * `htmlClassOfButtonSurroundingDiv` default: `pure-controls`
 * `htmlClassOfSubmitButton` default: `pure-button pure-button-primary`
 * `htmlClassOfFormErrorMessageDiv` default: `form-error`
+
+You can see example of how it's rendered [here](../dynamic_forms/documentation.md).

@@ -21,6 +21,7 @@ export class UserComponent {
     };
 
     public user:User = User.initEmptyUser();
+    public admin:boolean = false;
 
     constructor(private _user:UserService, private _router:Router) {
     }
@@ -30,6 +31,7 @@ export class UserComponent {
             this._user.getByToken().subscribe(
                 data => {
                     this.user = User.fromJson(data.text());
+                    this.admin = this.user.role == "ADMIN";
                 },
                 err => {
                     throw new Error(err.statusText);

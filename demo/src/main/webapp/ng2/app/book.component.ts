@@ -37,6 +37,11 @@ export class BookComponent {
         dateAdded: this.format(new Date())
     };
 
+    public admin:boolean = false;
+    public manager:boolean = false;
+    public editor:boolean = false;
+    public visitor:boolean = false;
+
     constructor(private _place:PlaceService, private _book:BookService, private _router:Router, private _user:UserService) {
     }
 
@@ -86,6 +91,10 @@ export class BookComponent {
             this._user.getByToken().subscribe(
                 data => {
                     this.user = User.fromJson(data.text());
+                    this.admin = this.user.role == "ADMIN";
+                    this.manager = this.user.role == "ADMIN" || this.user.role == "MANAGER";
+                    this.editor = this.user.role == "ADMIN" || this.user.role == "MANAGER" || this.user.role == "EDITOR";
+                    this.visitor = this.user.role == "ADMIN" || this.user.role == "MANAGER" || this.user.role == "EDITOR" || this.user.role == "VISITOR";
                 },
                 err => {
                     throw new Error(err.statusText);
