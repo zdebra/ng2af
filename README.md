@@ -103,3 +103,4 @@ export class BookComponent {
 * [Option documentation](af/options.md)
 * [Validators documentation](af/validators.md)
 * [DynamicForms documentation](dynamic_forms/documentation.md) (Angular 2 library)
+* [ReactiveDynamicForms documentation](reactive_dynamic_forms/documentation.md) (ReactJS library)

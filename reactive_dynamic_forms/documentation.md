@@ -1,5 +1,5 @@
 ### ReactiveDynamicForms
-Written in ES5 javascript. ReactiveDynamicForms is a component for [ReactJS](http://facebook.github.io/react/) library.
+Written in ES5 javascript. ReactiveDynamicForms is a component for [ReactJS](http://facebook.github.io/react/).
 
 #### Usage
 ```js
