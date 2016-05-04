@@ -1,0 +1,25 @@
+{
+  "name": "reactiveAf",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^15.0.2",
+    "react-addons-update": "^15.0.2",
+    "react-dom": "15.0.2",
+    "when": "^3.7.0"
+  },
+  "scripts": {
+    "start": "npm run watch",
+    "watch": "watchify src/App.js -o ./dist/bundle.js -v"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "devDependencies": {
+    "reactify": "^1.1.1",
+    "browserify": "^13.0.0",
+    "watchify": "^3.7.0"
+  }
+}
