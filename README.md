@@ -1,4 +1,4 @@
-# Angular 2 AspectFaces implementation
+# Angular 2 and ReactJS AspectFaces implementation
 ### What is AspectFaces?
 AspectFaces is a way how to save time on UI development. You easily define your
 forms on the backend side of the application and reduce information restating,
@@ -72,23 +72,31 @@ export class BookComponent {
 ### How to run the demo?
 1. Clone this repository `git clone https://github.com/zdebra/ng2af.git`
 
-2. Get all frontend dependencies. There are two Angular 2 apps in `demo/src/main/webapp` folder:
+2. Get all frontend dependencies. There are two Angular 2 apps and two ReactJS apps in `demo/src/main/webapp` folder:
     - `ng2` is prototype app without usage of `DynamicForms` library
     - `ng2af` is prototype app created on top of `DynamicForms` library
+    - `react` is prototype app without usage of `ReactiveDynamicForms` library
+    - `react_af` is prototype app created on top of `ReactiveDynamicForms` library
 
-  Run `npm link ../../../../../dynamic_forms` to link local npm package inside `ng2af` subdirectory. You might use sudo for this command, depends on your npm settings. Then navigate to both `ng2` and `ng2af` subdirectories and run `npm install` here. This should install all required frontend dependencies.
+        Run `npm link ../../../../../dynamic_forms` to link local npm package inside `ng2af` subdirectory. You might use sudo for this command, depends on your npm settings. Then navigate to both `ng2` and `ng2af` subdirectories and run `npm install` here.
+
+        The same process goes for React prototypes. For `react_af` link library with command `npm link ../../../../../reactive_dynamic_forms` and then in both directories `react_af` and `react` run `npm install`.
+
+        This should install all required frontend dependencies.
 
 3. Angular 2 is developed in Typescript, which nowday's browsers can't process. So you need to transpile all `.ts` files into the javascript. There are two ways how to achieve this:
   - use your built-in transpiler of your IDE (recomended)
   - run `tsc` in command line, you probably need to install typescript globally first (`npm install typescript -g`), you might get bunch of warnings but important is whether it generates `.js` files inside the `/app` directory.
 
-  You must transpile source codes in both `ng2` and `ng2af` prototypes (or in those which you want to use).
+    You must transpile source codes in both `ng2` and `ng2af` prototypes (or in those which you want to use).
 
-4. You need application server for Java EE7. I am using [Wildfly 10.0.0.Final](http://wildfly.org/downloads/).
+4. React prototypes are written in ES2015 (also known as ES6). You must transpile source codes, similarly like in previous step for Angular 2. Run `npm run build-js` in both React prototypes directories. This will compile everything into the `build/build.js` file.
 
-5. Create deployable package. Navigate to the root directory of demo and run `mvn package`. It creates the archive as well as obtains all required server dependencies.
+5. You need application server for Java EE7. I am using [Wildfly 10.0.0.Final](http://wildfly.org/downloads/).
 
-6. Deploy `war` archive.
+6. Create deployable package. Navigate to the root directory of demo and run `mvn package`. It creates the archive as well as obtains all required server dependencies.
+
+7. Deploy `war` archive.
 
 ### Documentation
 * [Input documentation](af/inputs.md)
